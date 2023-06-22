@@ -1,14 +1,15 @@
 # "TypeScript Cheat Sheets"
+### Run TypeScript file
+1. sudo npm install -g typescript
+2. tsc -v
+3. tsc (file.ts) -w
 
-### "Your First Vite Project"
+------------------------------
+### "Your First Vite Project (TypeScript, JavaScript, React ...)"
 
 1.  npm create vite@latest
 2.  Vanilla -> TypeScript
 3.  npm i
-
-### Deploying Vite App to GitHub Pages
-
-1. Create vite.config.js
 
 ### ⚙ Free Web Dev Tools
 
