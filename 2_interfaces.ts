@@ -71,18 +71,35 @@ const rect5: RectWithArea = {
 
 // Simple Class example
 class UserClass {
-  static secret = 12345;  // static property
-  constructor(public name: string, public age: number) {}
+  private nickName: string = 'TS Interfaces';
+  static secret:number = 12345;  // static property
+  
+  constructor(public name: string, public age: number) {}
 
+  //or
+  // public name: string;
+  // public age: number;
+
+  // constructor(name:string, age:number)  {
+  //     this.name = name;
+  //     this.age = age;
+  // }
 
   getPass(): string {
-    return `${this.name}${ UserClass .secret}`;
+    return `${this.name}${UserClass.secret}`;
   }
-
 }
 
-console.log( new UserClass('test Name', 31));// { name: 'test Name', age: 31 }
+//create Class
+const CreateUser = new UserClass('test Name', 31) 
+console.log(CreateUser)// { name: 'test Name', age: 31 }
+
+//fn call
+CreateUser.getPass();
+
+// Example of call static property
 console.log(UserClass.secret  )
+
 
 interface IClock {
   time: Date
@@ -96,7 +113,6 @@ class Clock implements IClock {
     this.time = date
   }
 }
-
 
 
 
