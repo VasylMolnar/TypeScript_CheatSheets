@@ -30,7 +30,47 @@ function getter4<T>(data: T): T {
     return data;
 }
 
+//////////////////////////////////// interface ////////////////////////////////////
 
+interface BoolCheck<T> {
+  value: T,
+  is: boolean,
+}
+
+const isObj = <T>(arg: T): boolean => {
+  return (typeof arg === 'object' && !Array.isArray(arg) && arg !== null)
+}
+
+const checkBoolValue = <T>(arg: T): BoolCheck<T> => {
+  if (Array.isArray(arg) && !arg.length) {
+      return { value: arg, is: false }
+  }
+  if (isObj(arg) && !Object.keys(arg as keyof T).length) {
+      return { value: arg, is: false }
+  }
+  return { value: arg, is: !!arg }
+}
+
+
+//////////////////////////////////////
+
+
+interface HasID {
+  id: number
+}
+
+const processUser = <T extends HasID>(user: T): T => {
+  // process the user with logic here 
+  return user
+}
+
+console.log(processUser({ id: 1, name: 'Dave' }))
+//console.log(processUser({ name: 'Dave'}))
+
+
+
+/////////////////////////////////////// Class ///////////////////////////////////////
+ 
 // Generic class
 class UserTest<T> {
 
@@ -68,3 +108,5 @@ class UserTest3<T, K extends number> {
           return this.age**2;
       }
   }
+
+
